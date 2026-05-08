@@ -10,7 +10,7 @@ public class GestorBiblioteca {
     }
 
     public void prestarLlibre(Usuari usuari, Llibre llibre) {
-        if (!llibre.esPrestat()) {
+        if (llibre.estaDisponible()) {
             llibre.prestar();
             Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
             prestecs.add(prestec);
@@ -20,4 +20,38 @@ public class GestorBiblioteca {
             System.out.println("Aquest llibre ja està prestat.");
         }
     }
+
+    public void llibresMesPrestats() {
+
+        List<String> titols = new ArrayList<>();
+        List<Integer> comptadors = new ArrayList<>();
+
+        for (Prestec p : prestecs) {
+            String titol = p.getLlibre().getTitol();
+
+            boolean trobat = false;
+
+            for (int i = 0; i < titols.size(); i++) {
+
+                if (!trobat && titols.get(i).equals(titol)) {
+                    comptadors.set(i, comptadors.get(i) + 1);
+                    trobat = true;
+                }
+            }
+
+            if (!trobat) {
+                titols.add(titol);
+                comptadors.add(1);
+            }
+        }
+
+        System.out.println("Llibres més prestats:");
+        for (int i = 0; i < titols.size(); i++) {
+            System.out.println(titols.get(i) + ": " + comptadors.get(i));
+        }
+    }
+
+    public void totalPrestecs() {
+    System.out.println("Total de préstecs: " + prestecs.size());
+}
 }
