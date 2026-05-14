@@ -8,15 +8,27 @@ import java.util.List;
  */
 public class Biblioteca {
     private List<Llibre> llibres;
-
+    /**
+     * Constructor de la biblioteca.
+     */
     public Biblioteca() {
         this.llibres = new ArrayList<>();
     }
-
+    /**
+     * Afegeix un llibre a la biblioteca.
+     * 
+     * @param llibre llibre a afegir
+     */
     public void afegirLlibre(Llibre llibre) {
         llibres.add(llibre);
     }
 
+    /**
+     * Busca un llibre per títol.
+     * 
+     * @param titol títol del llibre a buscar
+     * @return el llibre trobat o null si no s'ha trobat
+     */
     public Llibre buscarLlibre(String titol) {
         for (Llibre llibre : llibres) {
             if (llibre.getTitol().equalsIgnoreCase(titol)) {
@@ -26,6 +38,12 @@ public class Biblioteca {
         return null;
     }
 
+    /**
+     * Busca llibres per categoria.
+     * 
+     * @param categoria categoria dels llibres a buscar
+     * @return una llista amb els llibres trobats
+     */
     public List<Llibre> buscarPerCategoria(String categoria) {
         List<Llibre> resultat = new ArrayList<>();
 
@@ -38,6 +56,11 @@ public class Biblioteca {
         return resultat;
     }
 
+    /**
+     * Retorna la llista de llibres de la biblioteca.
+     * 
+     * @return la llista de llibres
+     */
     public List<Llibre> getLlibres() {
         return llibres;
     }

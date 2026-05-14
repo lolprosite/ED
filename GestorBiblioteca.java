@@ -1,31 +1,64 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- * Classe que representa un gestor de biblioteca, que permet gestionar els préstecs de llibres.
- * Permet prestar llibres als usuaris, comptar els llibres més prestats i el total de préstecs realitzats.
+ * Classe que representa un gestor de biblioteca, que permet gestionar els
+ * préstecs de llibres.
+ * Permet prestar llibres als usuaris, comptar els llibres més prestats i el
+ * total de préstecs realitzats.
+ * 
  * @author Ramón Giménez y Eric Aliseda
  * @version 1.0
  */
 public class GestorBiblioteca {
     private List<Prestec> prestecs;
 
+    /**
+     * Constructor del gestor de biblioteca.
+     */
     public GestorBiblioteca() {
         this.prestecs = new ArrayList<>();
     }
 
+    /**
+     * Presta un llibre a un usuari si està disponible.
+     * 
+     * @param usuari usuari que demana el llibre
+     * @param llibre llibre que es vol prestar
+     */
     public void prestarLlibre(Usuari usuari, Llibre llibre) {
+
         if (llibre.estaDisponible()) {
+
             llibre.prestar();
-            Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
+
+            Prestec prestec = new Prestec(
+                    usuari,
+                    llibre,
+                    LocalDate.now());
+
             prestecs.add(prestec);
+
             usuari.afegirLlibre(llibre);
-            System.out.println(usuari.getNom() + " ha agafat el llibre: " + llibre.getTitol());
+
+            usuari.afegirPrestec(prestec);
+
+            System.out.println(
+                    usuari.getNom() +
+                            " ha agafat el llibre: " +
+                            llibre.getTitol());
+
         } else {
-            System.out.println("Aquest llibre ja està prestat.");
+
+            System.out.println(
+                    "Aquest llibre ja està prestat.");
         }
     }
 
+    /**
+     * Compta els llibres més prestats.
+     */
     public void llibresMesPrestats() {
 
         List<String> titols = new ArrayList<>();
@@ -56,7 +89,10 @@ public class GestorBiblioteca {
         }
     }
 
+    /**
+     * Retorna el total de préstecs realitzats.
+     */
     public void totalPrestecs() {
-    System.out.println("Total de préstecs: " + prestecs.size());
-}
+        System.out.println("Total de préstecs: " + prestecs.size());
+    }
 }
