@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Classe que representa una biblioteca, que conté una col·lecció de llibres i permet afegir llibres, 
+ * buscar llibres per títol i categoria.
+ * @author Ramón Giménez y Eric Aliseda
+ * @version 1.0
+ */
 public class Biblioteca {
     private List<Llibre> llibres;
 

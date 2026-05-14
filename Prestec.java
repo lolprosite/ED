@@ -1,4 +1,9 @@
 import java.time.LocalDate;
+/**
+ * Classe que representa un prestec de llibre a la biblioteca.
+ * @author Ramón Giménez y Eric Aliseda
+ * @version 1.0
+ */
 public class Prestec {
 private Usuari usuari;
 private Llibre llibre;

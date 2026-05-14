@@ -1,3 +1,8 @@
+/**
+ * Classe principal que demostra l'ús de la biblioteca i els seus components.
+ * @author Ramón Giménez y Eric Aliseda
+ * @version 1.0
+ */
 public class Main {
 public static void main(String[] args) {
 Biblioteca biblioteca = new Biblioteca();

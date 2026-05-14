@@ -1,7 +1,12 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Classe que representa un gestor de biblioteca, que permet gestionar els préstecs de llibres.
+ * Permet prestar llibres als usuaris, comptar els llibres més prestats i el total de préstecs realitzats.
+ * @author Ramón Giménez y Eric Aliseda
+ * @version 1.0
+ */
 public class GestorBiblioteca {
     private List<Prestec> prestecs;
 
