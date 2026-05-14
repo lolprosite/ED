@@ -1,9 +1,3 @@
-public class Llibre {
-    private String titol;
-    private String autor;
-    private String categoria;
-    private boolean prestat;
-
     /**
      * Classe que representa un llibre, amb títol, autor, categoria i estat de
      * préstec. Permet prestar i retornar el llibre,
@@ -12,6 +6,13 @@ public class Llibre {
      * @author Ramón Giménez y Eric Aliseda
      * @version 1.0
      */
+    public class Llibre {
+    private String titol;
+    private String autor;
+    private String categoria;
+    private boolean prestat;
+
+
     /**
      * Constructor del llibre.
      * 
